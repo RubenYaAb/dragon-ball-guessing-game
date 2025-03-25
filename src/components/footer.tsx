@@ -4,7 +4,6 @@ export default function Footer(): JSX.Element {
   return (
     <footer className="footer">
       <p>Desarrollado por Rubén Yáñez Aballe</p>
-      <p>Todos los derechos reservados &copy;</p>
       <p>Contacto:<a href="mailto:magnes-dev@outlook.com">magnes-dev@outlook.com</a></p>
       <p>
         API:
