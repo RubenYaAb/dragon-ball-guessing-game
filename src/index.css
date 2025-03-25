@@ -1,0 +1,200 @@
+@font-face {
+  font-family: "Suse";
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+  src: url("./assets/fonts/SUSE-Regular.woff2") format("woff2"),
+    url("./assets/fonts/SUSE-Regular.ttf") format("ttf");
+}
+
+@font-face {
+  font-family: "Suse-SemiBold";
+  font-display: swap;
+  font-style: normal;
+  font-weight: 600;
+  src: url("./assets/fonts/SUSE-SemiBold.woff2") format("woff2"),
+    url("./assets/fonts/SUSE-SemiBold.ttf") format("ttf");
+}
+
+:root {
+  line-height: 1.5;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  --red: #f00d08;
+  --green: #03c03c;
+  --yellow: #fff714;
+}
+
+html {
+  background-color: #f0f0f0;
+  font-family: Suse, sans-serif;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.isBlurred {
+  filter: blur(0.5rem);
+}
+
+.image-shadow {
+  filter: drop-shadow(0 0 0.5rem rgba(0, 0, 0, 1));
+}
+
+.game-controls {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: 20%;
+
+  & label {
+    font-family: SUSE-SemiBold, sans-serif;
+  }
+}
+
+.name-input-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  & [type="text"] {
+    max-height: 1rem;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    border: 3px solid black;
+  }
+}
+
+.send-button {
+  position: relative;
+
+  & input {
+    width: 120px;
+  }
+
+  & img {
+    position: absolute;
+    top: 12px;
+    left: 62px;
+    width: 35px;
+  }
+}
+
+.hover-button:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 0.5rem rgba(0, 0, 0, 0.7));
+  cursor: pointer;
+
+  &:active {
+    filter: drop-shadow(0 0 0 transparent);
+    transform: scale(1);
+  }
+}
+
+.score-container {
+  display: flex;
+  flex-direction: column;
+
+  & span {
+    font-family: SUSE-SemiBold, sans-serif;
+    margin-right: 1rem;
+  }
+
+  & button {
+    font-family: SUSE-SemiBold, sans-serif;
+    text-align: center;
+    font-size: 1.1rem;
+    border: 3px solid black;
+    border-radius: 0.5rem;
+    padding: 0.2rem 0.5rem;
+    width: fit-content;
+    margin-top: 2rem;
+    background-color: var(--red);
+  }
+}
+
+.message {
+  font-family: SUSE-SemiBold, sans-serif;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 1.5rem;
+  border: 3px solid black;
+  border-radius: 0.5rem;
+  padding: 0.2rem 0.5rem;
+  width: fit-content;
+  box-shadow: 0 0 10px black;
+}
+
+.correct-message {
+  background-color: var(--green);
+}
+
+.wrong-message {
+  background-color: var(--red);
+}
+
+.character-image-container {
+  display: flex;
+  justify-content: center;
+}
+
+.game-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 3rem auto;
+  width: 100%;
+}
+
+.names-list-container {
+  max-height: 50vh;
+
+  & ul {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    list-style-type: none;
+    border: 4px solid black;
+    border-radius: 1rem;
+    padding: 1rem;
+    background-color: var(--yellow);
+    box-shadow: 0 0 10px black;
+
+    & li {
+      text-align: center;
+      font-size: 0.8rem;
+      padding: 0.2rem;
+      border-radius: 0.5rem;
+      border: 2px solid transparent;
+
+      &:hover {
+        background-color: var(--red);
+        border: 2px solid black;
+        cursor: pointer;
+        font-family: SUSE-SemiBold;
+      }
+    }
+  }
+}
+
+.score-modal {
+  border-radius: 1rem;
+  background-color: var(--yellow);
+
+  & span {
+    font-family: SUSE-SemiBold, sans-serif;
+    margin-right: 1rem;
+  }
+}
+
+.hide {
+  visibility: hidden;
+}
