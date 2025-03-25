@@ -3,8 +3,8 @@
   font-display: swap;
   font-style: normal;
   font-weight: 400;
-  src: url("./assets/fonts/SUSE-Regular.woff2") format("woff2"),
-    url("./assets/fonts/SUSE-Regular.ttf") format("ttf");
+  src: url("/assets/fonts/SUSE-Regular.woff2") format("woff2"),
+    url("/assets/fonts/SUSE-Regular.ttf") format("ttf");
 }
 
 @font-face {
@@ -12,8 +12,8 @@
   font-display: swap;
   font-style: normal;
   font-weight: 600;
-  src: url("./assets/fonts/SUSE-SemiBold.woff2") format("woff2"),
-    url("./assets/fonts/SUSE-SemiBold.ttf") format("ttf");
+  src: url("/assets/fonts/SUSE-SemiBold.woff2") format("woff2"),
+    url("/assets/fonts/SUSE-SemiBold.ttf") format("ttf");
 }
 
 :root {
