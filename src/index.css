@@ -25,11 +25,14 @@
   --red: #f00d08;
   --green: #03c03c;
   --yellow: #fff714;
+  --footer-height: 5rem;
 }
 
-html {
+html, body {
   background-color: #f0f0f0;
   font-family: Suse, sans-serif;
+  min-height: 100vh;
+  position: relative;
 }
 
 header {
@@ -41,6 +44,7 @@ main {
   display: flex;
   justify-content: center;
   flex-direction: column;
+  padding-bottom: calc(var(--footer-height) * 2);
 }
 
 .isBlurred {
@@ -60,33 +64,33 @@ main {
   & label {
     font-family: SUSE-SemiBold, sans-serif;
   }
-}
 
-.name-input-container {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+  & .name-input-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 
-  & [type="text"] {
-    max-height: 1rem;
-    border-radius: 0.5rem;
-    padding: 0.5rem;
-    border: 3px solid black;
-  }
-}
+    & [type="text"] {
+      max-height: 1rem;
+      border-radius: 0.5rem;
+      padding: 0.5rem;
+      border: 3px solid black;
+    }
 
-.send-button {
-  position: relative;
+    & .send-button {
+      position: relative;
 
-  & input {
-    width: 120px;
-  }
+      & input {
+        width: 120px;
+      }
 
-  & img {
-    position: absolute;
-    top: 12px;
-    left: 62px;
-    width: 35px;
+      & img {
+        position: absolute;
+        top: 12px;
+        left: 62px;
+        width: 35px;
+      }
+    }
   }
 }
 
@@ -101,25 +105,35 @@ main {
   }
 }
 
-.score-container {
+.score-section {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
-  & span {
-    font-family: SUSE-SemiBold, sans-serif;
-    margin-right: 1rem;
-  }
+  & .score-container {
+    display: flex;
+    flex-direction: column;
+    border: 4px solid black;
+    padding: 2rem;
+    border-radius: 1rem;
+    background-color: var(--yellow);
 
-  & button {
-    font-family: SUSE-SemiBold, sans-serif;
-    text-align: center;
-    font-size: 1.1rem;
-    border: 3px solid black;
-    border-radius: 0.5rem;
-    padding: 0.2rem 0.5rem;
-    width: fit-content;
-    margin-top: 2rem;
-    background-color: var(--red);
+    & span {
+      font-family: SUSE-SemiBold, sans-serif;
+      margin-right: 1rem;
+    }
+
+    & button {
+      font-family: SUSE-SemiBold, sans-serif;
+      text-align: center;
+      font-size: 1.1rem;
+      border: 3px solid black;
+      border-radius: 0.5rem;
+      padding: 0.2rem 0.5rem;
+      width: fit-content;
+      margin-top: 2rem;
+      background-color: var(--red);
+    }
   }
 }
 
@@ -197,4 +211,30 @@ main {
 
 .hide {
   visibility: hidden;
+}
+
+.footer {
+  background-color: var(--red);
+  width: 100%;
+  height: var(--footer-height);
+  border: 4px solid black;
+  margin: 1rem auto;
+  border-radius: 1rem;
+  box-shadow: 0 0 10px black;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+
+  & a {
+    color: black;
+    margin: 0 0.5rem;
+  }
+}
+
+.wrong-device-message {
+  margin: 4rem auto;
+  width: 100%;
+  text-align: center;
 }

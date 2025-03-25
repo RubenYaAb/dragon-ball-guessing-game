@@ -8,6 +8,8 @@ import ImageContainer from './components/containers/image-container'
 import GameControls from './components/game-controls'
 import NamesListContainer from './components/containers/names-list-container'
 import FinalScoreModal from './components/final-score-modal'
+import Footer from './components/footer'
+import WrongDeviceMessage from './components/wrong-device-message'
 
 function App() {
   const [characterList, setCharacterList] = useState<Character[]>([])
@@ -63,9 +65,9 @@ function App() {
     setIsImageBlurred(false);
     setCorrectAnswer(true)
     setTimeout(() => {
-      setIsImageBlurred(true)
       setCorrectAnswer(false)
       setAnswer('')
+      setIsImageBlurred(true)
       nextCharacter()
     }, 2000)
   }
@@ -75,9 +77,9 @@ function App() {
     setCountWrongAnswers(prev => prev + 1)
     setIsImageBlurred(false)
     setTimeout(() => {
-      setIsImageBlurred(true)
       setWrongAnswer(false)
       setAnswer('')
+      setIsImageBlurred(true)
       nextCharacter()
     }, 2000)
   }
@@ -92,38 +94,50 @@ function App() {
   return (
     <>
       <MainLogo width='20%' height='auto' />
-      <main>
-        <div className='game-container'>
-          <NamesListContainer
-            characterList={characterList}
-            setAnswer={setAnswer}
-          />
-          <ImageContainer
-            isError={isError}
-            characterList={characterList}
-            currentCharacterIndex={currentCharacterIndex}
-            isBlurred={isImageBlurred}
-          />
-          <Score
-            score={score}
-            maxScore={characterListLength.current}
-            resetGameHandler={resetGameHandler}
-            countWrongAnswers={countWrongAnswers}
-          />
-        </div>
-        <GameControls
-          checkAnswer={checkAnswer}
-          answer={answer}
-          setAnswer={setAnswer}
-          characterList={characterList}
-        />
-        <GameMessages wrongAnswer={wrongAnswer} correctAnswer={correctAnswer} />
-        <FinalScoreModal
-          showFinalScore={showFinalScore}
-          score={score}
-          maxScore={characterListLength.current}
-        />
-      </main>
+      {
+        window.innerWidth < 1440
+          ?
+          <WrongDeviceMessage />
+          :
+          <>
+            <main>
+              <div className='game-container'>
+                <NamesListContainer
+                  characterList={characterList}
+                  setAnswer={setAnswer}
+                />
+                <ImageContainer
+                  isError={isError}
+                  characterList={characterList}
+                  currentCharacterIndex={currentCharacterIndex}
+                  isBlurred={isImageBlurred}
+                />
+                <Score
+                  score={score}
+                  maxScore={characterListLength.current}
+                  resetGameHandler={resetGameHandler}
+                  countWrongAnswers={countWrongAnswers}
+                />
+              </div>
+              <GameControls
+                checkAnswer={checkAnswer}
+                answer={answer}
+                setAnswer={setAnswer}
+                characterList={characterList}
+              />
+              <GameMessages
+                wrongAnswer={wrongAnswer}
+                correctAnswer={correctAnswer}
+              />
+              <FinalScoreModal
+                showFinalScore={showFinalScore}
+                score={score}
+                maxScore={characterListLength.current}
+              />
+            </main>
+            <Footer />
+          </>
+      }
     </>
   )
 }
