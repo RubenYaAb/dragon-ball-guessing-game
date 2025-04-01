@@ -1,4 +1,5 @@
 import { Character } from "../../lib/types"
+import styles from '../../styles/names-list-container.module.css'
 
 type Props = {
   characterList: Character[],
@@ -14,7 +15,7 @@ export default function NamesListContainer(props: Props): JSX.Element {
   }) 
 
   return (
-    <div className={`names-list-container ${characterList.length === 0 && 'hide'}`} >
+    <div className={`${styles.namesListContainer} ${characterList.length === 0 && 'hide'}`} >
       <ul>
         {
           orderCharacterList?.map((character) => {

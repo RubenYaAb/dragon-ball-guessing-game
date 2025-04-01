@@ -1,6 +1,7 @@
 import { Character } from '../lib/types'
 import cloud from '/assets/images/cloud.png'
 import sendIcon from '/assets/images/send_icon.png'
+import styles from '../styles/game-controls.module.css'
 
 type Props = {
   checkAnswer: (name: string) => void,
@@ -21,9 +22,9 @@ function GameControls(props: Props): JSX.Element {
   }
 
   return (
-    <section className={`game-controls ${characterList.length === 0 && 'hide'}`}>
+    <section className={`${styles.gameControls} ${characterList.length === 0 && 'hide'}`}>
       <label htmlFor="name">Nombre del personaje:</label>
-      <div className='name-input-container'>
+      <div className={styles.nameInputContainer}>
         <input 
           type='text'
           placeholder='Nombre'
@@ -32,7 +33,7 @@ function GameControls(props: Props): JSX.Element {
           onChange={(e) => setAnswer(e.target.value)}
           value={answer}  
         />
-        <div className='send-button hover-button' onClick={handleSubmit} >
+        <div className={`${styles.sendButton} hover-button`} onClick={handleSubmit} >
           <input type="image" src={cloud} alt="Login button" defaultValue={answer} />
           <img src={sendIcon} alt="Send button" />
         </div>

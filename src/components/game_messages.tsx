@@ -1,3 +1,4 @@
+import styles from '../styles/game-messages.module.css'
 
 type Props = {
   wrongAnswer: boolean,
@@ -6,10 +7,10 @@ type Props = {
 
 function GameMessages({ wrongAnswer, correctAnswer }: Props): JSX.Element {
 
-  if (wrongAnswer) return <p className="message wrong-message">Incorrecto</p>
-  if (correctAnswer) return <p className="message correct-message">Correcto</p>
+  if (wrongAnswer) return <p className={`${styles.message} ${styles.wrongMessage}`}>Incorrecto</p>
+  if (correctAnswer) return <p className={`${styles.message} ${styles.correctMessage}`}>Correcto</p>
 
-  return <p className="message hide">HIDE</p>
+  return <p className={`${styles.message} hide`}>HIDDEN</p>
 }
 
 export default GameMessages

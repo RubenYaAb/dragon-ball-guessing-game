@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import getAllCharacters from './axios/get-all-characters'
-import MainLogo from './components/main-logo'
+import Header from './components/main-logo'
 import Score from './components/score'
 import GameMessages from './components/game_messages'
 import { Character } from './lib/types'
@@ -10,6 +10,7 @@ import NamesListContainer from './components/containers/names-list-container'
 import FinalScoreModal from './components/final-score-modal'
 import Footer from './components/footer'
 import WrongDeviceMessage from './components/wrong-device-message'
+import styles from './styles/game-container.module.css'
 
 function App() {
   const [characterList, setCharacterList] = useState<Character[]>([])
@@ -93,7 +94,7 @@ function App() {
 
   return (
     <>
-      <MainLogo width='20%' height='auto' />
+      <Header />
       {
         window.innerWidth < 1440
           ?
@@ -101,7 +102,7 @@ function App() {
           :
           <>
             <main>
-              <div className='game-container'>
+              <div className={styles.gameContainer}>
                 <NamesListContainer
                   characterList={characterList}
                   setAnswer={setAnswer}

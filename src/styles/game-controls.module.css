@@ -1,0 +1,38 @@
+.gameControls {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: 20%;
+
+  & label {
+    font-family: SUSE-SemiBold, sans-serif;
+  }
+
+  & .nameInputContainer {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    & [type="text"] {
+      max-height: 1rem;
+      border-radius: 0.5rem;
+      padding: 0.5rem;
+      border: 3px solid black;
+    }
+
+    & .sendButton {
+      position: relative;
+
+      & input {
+        width: 120px;
+      }
+
+      & img {
+        position: absolute;
+        top: 12px;
+        left: 62px;
+        width: 35px;
+      }
+    }
+  }
+}

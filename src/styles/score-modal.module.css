@@ -1,0 +1,9 @@
+.scoreModal {
+  border-radius: 1rem;
+  background-color: var(--yellow);
+
+  & span {
+    font-family: SUSE-SemiBold, sans-serif;
+    margin-right: 1rem;
+  }
+}

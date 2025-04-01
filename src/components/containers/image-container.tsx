@@ -1,5 +1,6 @@
-import { Character } from "../../lib/types";
-import CharacterImage from "../character-image";
+import { Character } from "../../lib/types"
+import CharacterImage from "../character-image"
+import styles from '../../styles/image-container.module.css'
 
 type Props = {
   isError: boolean,
@@ -17,7 +18,7 @@ export default function ImageContainer(props: Props): JSX.Element {
   } = props;
 
   return (
-    <div className="character-image-container">
+    <div className={styles.imageContainer} >
       {
         isError
           ?

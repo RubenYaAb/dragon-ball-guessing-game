@@ -1,23 +1,19 @@
 import logo from '/assets/images/dragon-ball-logo.png'
+import styles from '../styles/header.module.css'
 
-type Props = {
-  width: string,
-  height: string
-}
-
-function MainLogo({ width, height }: Props): JSX.Element {
+function Header(): JSX.Element {
 
   return (
-    <header>
+    <header className={styles.header}>
       <img
         src={logo}
         alt="Dragon Ball Logo"
-        width={width}
-        height={height}
+        width='20%'
+        height='auto'
         className='image-shadow'
       />
     </header>
   )
 }
 
-export default MainLogo
+export default Header
