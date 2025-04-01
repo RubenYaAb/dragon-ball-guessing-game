@@ -42,13 +42,13 @@ function App() {
   }, [characterList, isPlaying])
 
   const nextCharacter = (): void => {
+    setCurrentCharacterIndex(Math.floor(Math.random() * (characterList.length - 1)))
     setCharacterList(prev => {
       const newList = prev.filter(character =>
         character.id !== prev[currentCharacterIndex].id
       )
       return newList
     })
-    setCurrentCharacterIndex(Math.floor(Math.random() * (characterList.length - 1)))
     if (characterList.length === 1) setShowFinalScore(true)
   }
 
